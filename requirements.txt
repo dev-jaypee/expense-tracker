@@ -1,0 +1,6 @@
+streamlit
+pandas
+plotly
+
+# Dev/testing only — not needed for deployment, only for running `pytest` locally
+pytest
