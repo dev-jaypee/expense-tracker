@@ -3,9 +3,7 @@
 A simple, interactive expense tracker with a web interface — built in Python,
 originally a terminal app, converted into a Streamlit web app.
 
-**[Live demo →](#)** *(link added once deployed — see Day 3)*
-
-![screenshot placeholder](#)
+**[Live demo →](https://etrackerly.streamlit.app)**
 
 ## Features
 
@@ -31,7 +29,9 @@ originally a terminal app, converted into a Streamlit web app.
 ├── app.py              # UI: forms, charts, layout — imports logic, doesn't duplicate it
 ├── expense.py           # The Expense data class
 ├── expenses.csv          # Sample data (this demo uses shared, resettable data)
+├── conftest.py           # Makes app.py importable by pytest, regardless of how it's run
 ├── requirements.txt
+├── .gitignore
 ├── .streamlit/
 │   └── config.toml       # Theme (colors, dark mode)
 └── tests/
@@ -64,10 +64,15 @@ Every core function (parsing a CSV line, computing totals, saving,
 deleting) has test coverage, so a future change that breaks something
 will fail a test immediately instead of failing silently in the UI.
 
+## Deployment
+
+Hosted for free on [Streamlit Community Cloud](https://streamlit.io/cloud),
+connected directly to this repository's `main` branch. Any push to `main`
+is picked up automatically and redeployed within a minute or two — no
+manual redeploy step required.
+
 ## Notes on this demo version
 
 This deployed version uses one shared CSV file as storage — anyone who
 visits the live link can add or delete expenses, and data may be reset
-periodically. This is intentional for a public portfolio demo. A private,
-per-visitor version (with accounts and a real database) is a planned
-next step — see the project roadmap in commit history / issues.
+periodically. This is intentional for a public portfolio demo.
